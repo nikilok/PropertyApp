@@ -48,3 +48,4 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ![Screen](https://raw.githubusercontent.com/nikilok/PropertyApp/master/screenshots/loading.png)
 ![Screen](https://raw.githubusercontent.com/nikilok/PropertyApp/master/screenshots/catalog.png)
 ![Screen](https://raw.githubusercontent.com/nikilok/PropertyApp/master/screenshots/catalog-without-images.png)
+![Screen](https://raw.githubusercontent.com/nikilok/PropertyApp/master/screenshots/responsive-view.png)
