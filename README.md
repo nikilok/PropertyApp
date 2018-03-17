@@ -45,7 +45,11 @@ Run `ng lint` to perform code linting for the client app, inside the client fold
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## Screenshots
+Loading Animation while fetching data
 ![Screen](https://raw.githubusercontent.com/nikilok/PropertyApp/master/screenshots/loading.png)
+Catalog with photographs
 ![Screen](https://raw.githubusercontent.com/nikilok/PropertyApp/master/screenshots/catalog.png)
+Catalog with missing photographs
 ![Screen](https://raw.githubusercontent.com/nikilok/PropertyApp/master/screenshots/catalog-without-images.png)
+Mobile view of the catalog
 ![Screen](https://raw.githubusercontent.com/nikilok/PropertyApp/master/screenshots/responsive-view.png)
