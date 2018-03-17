@@ -1,0 +1,28 @@
+<div class="card pointer">
+  <div class="photo" [ngStyle]="{'background-image': 'url(' + property.photoUrl + ')'}">
+    <app-property-status-button [property]="property"></app-property-status-button>
+  </div>
+  <div class="information">
+    <div class="summary">
+      <div class="title">{{property.title}}</div>
+      <div class="location">{{property.fullAddress}}</div>
+    </div>
+
+    <div class="footer">
+      <div *ngIf="(property.isRent); then rentPrice; else sellingPrice"></div>
+      <div class="rooms">{{property.numberRooms}} Zimmer</div>
+      <div class="area">{{property.space | number:'1.0-0'}} m
+        <span>2</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<ng-template #rentPrice>
+  <div *ngIf="property.baseRent" class="price">{{property.baseRent | number:'1.2-2' }} € </div>
+</ng-template>
+
+<ng-template #sellingPrice>
+  <div *ngIf="property.sellPrice" class="price">{{property.sellPrice | number:'1.2-2' }} € </div>
+</ng-template>

@@ -1,0 +1,13 @@
+@import '../../styles/breakpoints';
+
+.results {
+    display: grid;
+
+    @include respond-to(handhelds) { grid-template-columns: auto; }
+    @include respond-to(medium-screens) { grid-template-columns: 50% 50%; }
+    @include respond-to(wide-screens) { grid-template-columns: 30% 30% 30%; }
+
+	grid-column-gap: 30px;
+	grid-row-gap: 30px;
+	justify-content: center;
+}

@@ -1,0 +1,12 @@
+<div [ngSwitch]="currentState">
+  <div *ngSwitchCase="allStates.FOR_RENT">
+      <div class="status-button pointer">Mieten</div>
+  </div>
+  <div *ngSwitchCase="allStates.FOR_SALE">
+      <div class="status-button pointer">Kaufen</div>
+  </div>
+  <div *ngSwitchCase="allStates.FOR_SALE_RENT">
+      <div class="status-button pointer">Mieten / Kaufen</div>
+  </div>
+</div>
+

@@ -1,0 +1,7 @@
+<div *ngIf="(isLoading$ | async)">
+  <app-loading class="center"></app-loading>
+</div>
+
+<div class="main-content">
+  <app-result-view [properties$]="properties$"></app-result-view>
+</div>

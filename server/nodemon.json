@@ -1,0 +1,17 @@
+{
+  "watch": [
+    "src"
+  ],
+  "ext": "ts",
+  "ignore": [
+    "src/**/*.spec.ts"
+  ],
+  "exec": "ts-node ./src/index.ts",
+  "env": {
+    "REDIS_HOST": "localhost",
+    "REDIS_PORT": "6379",
+    "EHMV_SERVICE_URL": "https://192.168.72.178:20000",
+    "EHMV_SERVICE_USERNAME": "ehmv-search",
+    "EHMV_SERVICE_PASSWORD": "ehmv-search123"
+  }
+}
