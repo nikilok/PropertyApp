@@ -51,5 +51,8 @@ Catalog with photographs
 ![Screen](https://raw.githubusercontent.com/nikilok/PropertyApp/master/screenshots/catalog.png)
 Catalog with missing photographs
 ![Screen](https://raw.githubusercontent.com/nikilok/PropertyApp/master/screenshots/catalog-without-images.png)
+A Card Upon Mouseover
+![Screen](https://raw.githubusercontent.com/nikilok/PropertyApp/master/screenshots/card-hover-effects.png)
+
 Mobile view of the catalog
 ![Screen](https://raw.githubusercontent.com/nikilok/PropertyApp/master/screenshots/responsive-view.png)
