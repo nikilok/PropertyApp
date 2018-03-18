@@ -28,18 +28,17 @@ export class PropertyCardComponent implements OnInit {
   mouseMove(event) {
     const offsetX = 0.5 - event.screenX / this.w, // cursor position X
       offsetY = 0.5 - event.screenY / this.h, // cursor position Y
-      dy = event.screenY - this.h / 2, // @h/2 = center of poster
-      dx = event.screenX - this.w / 2, // @w/2 = center of poster
+      dy = event.screenY - this.h / 2, // center of viewport: Todo Find center of card
+      dx = event.screenX - this.w / 2, // center of viewport: Todo Find center of card
       theta = Math.atan2(dy, dx), // angle between cursor and center of card in RAD
       transformCard = `perspective(500px) rotateY(${offsetX * (this.cardOffset * 2)}deg)`; // card transform
     let angle = theta * 180 / Math.PI - 90; // convert rad in degrees
-    const glare = `linear-gradient(${angle}deg, rgba(255,255,255, ${event.screenY /
-      this.h}) 0%,rgba(255,255,255,0) 80%)`;
-
     // get angle between 0-360
     if (angle < 0) {
       angle = angle + 360;
     }
+    const glare = `linear-gradient(${angle}deg, rgba(255,255,255, ${event.screenY /
+      this.h}) 0%,rgba(255,255,255,0) 80%)`;
 
     this.transformStyle = transformCard;
     this.glareStyle = glare;
