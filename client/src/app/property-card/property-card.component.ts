@@ -20,7 +20,6 @@ export class PropertyCardComponent implements OnInit {
     this.h = window.innerHeight;
   }
   /*
-    Beta:
     Inspired by the Apple TV Card animation,
     Calculating the Amount of swing to the card while the mouse hovers the card,
     Also calculating the glare effect's reflection on the card.
@@ -37,11 +36,11 @@ export class PropertyCardComponent implements OnInit {
     if (angle < 0) {
       angle = angle + 360;
     }
-    const glare = `linear-gradient(${angle}deg, rgba(255,255,255, ${event.screenY /
+    const glareShine = `linear-gradient(${angle}deg, rgba(255,255,255, ${event.screenY /
       this.h}) 0%,rgba(255,255,255,0) 80%)`;
 
     this.transformStyle = transformCard;
-    this.glareStyle = glare;
+    this.glareStyle = glareShine;
   }
   /*
     Reset the Transformation / Glare shines calculated on Mouse Move.
