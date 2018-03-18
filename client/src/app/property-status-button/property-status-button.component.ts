@@ -2,7 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { PropertyRecord } from '../model/property-record';
 
 enum statesEnum {
-  FOR_RENT, FOR_SALE, FOR_SALE_RENT
+  FOR_RENT,
+  FOR_SALE,
+  FOR_SALE_RENT
 }
 
 @Component({
@@ -11,12 +13,11 @@ enum statesEnum {
   styleUrls: ['./property-status-button.component.scss']
 })
 export class PropertyStatusButtonComponent implements OnInit {
-
   @Input() property: PropertyRecord;
   currentState: statesEnum;
   allStates = statesEnum;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.currentState = this.getPropertyState();
@@ -28,7 +29,6 @@ export class PropertyStatusButtonComponent implements OnInit {
       return this.allStates.FOR_SALE_RENT;
     }
 
-    return (this.property.isRent) ? this.allStates.FOR_RENT : this.allStates.FOR_SALE;
+    return this.property.isRent ? this.allStates.FOR_RENT : this.allStates.FOR_SALE;
   }
-
 }

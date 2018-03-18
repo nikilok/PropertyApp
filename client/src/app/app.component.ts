@@ -10,14 +10,10 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-
   properties$: Observable<PropertyRecord[]>;
   isLoading$: Observable<Boolean>;
 
-  constructor(
-    private propertyServiceXHR: PropertyServiceXHR,
-    private propertyService: PropertyService
-  ) { }
+  constructor(private propertyServiceXHR: PropertyServiceXHR, private propertyService: PropertyService) {}
 
   ngOnInit() {
     this.isLoading$ = this.propertyService.isLoading();
@@ -27,11 +23,10 @@ export class AppComponent implements OnInit {
   }
 
   fetchPropertyData() {
-    this.propertyServiceXHR.fetchData()
-      .subscribe((res: any) => {
-        const properties = res.data.map((property) => new PropertyRecord(property));
-        this.propertyService.updatePropertydata(properties);
-        this.propertyService.hideLoading();
-      });
+    this.propertyServiceXHR.fetchData().subscribe((res: any) => {
+      const properties = res.data.map(property => new PropertyRecord(property));
+      this.propertyService.updatePropertydata(properties);
+      this.propertyService.hideLoading();
+    });
   }
 }

@@ -8,18 +8,16 @@ import { PropertyRecord } from '../model/property-record';
   styleUrls: ['./result-view.component.scss']
 })
 export class ResultViewComponent implements OnInit {
-
   @Input() properties$: Observable<PropertyRecord[]>;
 
   properties: PropertyRecord[];
   private readonly numberOfProperties: number = 50;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.properties$.subscribe(properties => {
       this.properties = properties.slice(0, this.numberOfProperties);
     });
   }
-
 }

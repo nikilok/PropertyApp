@@ -1,42 +1,42 @@
 $logo-width: 200px;
 .loading {
-    position: relative;
+  position: relative;
+  width: $logo-width;
+  height: 80px;
+
+  .gray {
+    background-image: url('../../assets/logo.svg');
+  }
+  .yellow {
+    background-image: url('../../assets/logo-fill.svg');
+  }
+
+  .logo {
     width: $logo-width;
-    height: 80px;
+    height: 50px;
+    background-position: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0px;
+  }
 
-        .gray {
-            background-image: url('../../assets/logo.svg');
-        }
-        .yellow {
-            background-image: url('../../assets/logo-fill.svg');
-        }
-
-        .logo {
-            width: $logo-width;
-            height: 50px;
-            background-position: contain;
-            background-repeat: no-repeat;
-            position: absolute;
-            top: 0px;
-        }
-
-        .divider {
-            overflow:hidden;
-            height: 30px;
-            left: -1px;
-            position: absolute;
-            animation-name: fill-logo;
-            animation-duration: 2s;
-            animation-delay: 0.3s;
-            animation-iteration-count: infinite;
-        }
+  .divider {
+    overflow: hidden;
+    height: 30px;
+    left: -1px;
+    position: absolute;
+    animation-name: fill-logo;
+    animation-duration: 2s;
+    animation-delay: 0.3s;
+    animation-iteration-count: infinite;
+  }
 }
 
 @keyframes fill-logo {
-    0% {
-        width: 0px;
-    }
-    100% {
-        width: $logo-width;
-    }
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: $logo-width;
+  }
 }

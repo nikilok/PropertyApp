@@ -8,7 +8,6 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
   styleUrls: ['./property-card.component.scss']
 })
 export class PropertyCardComponent implements OnInit {
-
   @Input() property: PropertyRecord;
   private w: number;
   private h: number;
@@ -32,9 +31,10 @@ export class PropertyCardComponent implements OnInit {
       dy = event.screenY - this.h / 2, // @h/2 = center of poster
       dx = event.screenX - this.w / 2, // @w/2 = center of poster
       theta = Math.atan2(dy, dx), // angle between cursor and center of card in RAD
-      transformCard = `perspective(500px) rotateY(${(offsetX * (this.cardOffset * 2))}deg)`; // card transform
+      transformCard = `perspective(500px) rotateY(${offsetX * (this.cardOffset * 2)}deg)`; // card transform
     let angle = theta * 180 / Math.PI - 90; // convert rad in degrees
-    const glare = `linear-gradient(${angle}deg, rgba(255,255,255, ${event.screenY / this.h}) 0%,rgba(255,255,255,0) 80%)`;
+    const glare = `linear-gradient(${angle}deg, rgba(255,255,255, ${event.screenY /
+      this.h}) 0%,rgba(255,255,255,0) 80%)`;
 
     // get angle between 0-360
     if (angle < 0) {
@@ -43,7 +43,6 @@ export class PropertyCardComponent implements OnInit {
 
     this.transformStyle = transformCard;
     this.glareStyle = glare;
-
   }
   /*
     Reset the Transformation / Glare shines calculated on Mouse Move.
@@ -51,5 +50,4 @@ export class PropertyCardComponent implements OnInit {
   mouseLeave(event) {
     this.transformStyle = this.glareStyle = '';
   }
-
 }

@@ -23,14 +23,8 @@ registerLocaleData(localeDe, 'de');
     PropertyStatusButtonComponent,
     LoadingComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule
-  ],
-  providers: [
-    PropertyServiceXHR,
-    PropertyService
-  ],
+  imports: [BrowserModule, HttpClientModule],
+  providers: [PropertyServiceXHR, PropertyService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
