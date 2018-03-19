@@ -34,8 +34,7 @@ export class PropertyCardComponent implements OnInit {
       transformCard = `perspective(500px) rotateY(${offsetX * (this.cardOffset * 2)}deg)`, // card transform
       angle = theta * 180 / Math.PI - 90; // convert rad to degrees
 
-    const glareShine = `linear-gradient(${angle}deg, rgba(255,255,255, ${event.screenY /
-      this.h}) 0%,rgba(255,255,255,0) 80%)`;
+    const glareShine = `linear-gradient(${angle}deg, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 80%)`;
 
     this.transformStyle = transformCard;
     this.glareStyle = glareShine;
