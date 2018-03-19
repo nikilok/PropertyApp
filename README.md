@@ -38,7 +38,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Git Hooks
 
-The application has a `precommit` git hook which auto formats the code and runs an `ng lint` on the entire front-end code base. Hence commits will only succeed if linting passes.
+The application has a `precommit` git hook which auto formats the code and runs an `ng lint` on the entire front-end code base.
 
 ## Running end-to-end tests
 
