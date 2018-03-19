@@ -7,8 +7,8 @@ describe('property-app App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('Main content should exist with a class called main-content', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getClassFromElement()).toEqual('main-content');
   });
 });
