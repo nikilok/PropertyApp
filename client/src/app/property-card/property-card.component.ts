@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { PropertyRecord } from '../model/property-record';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Component({
   selector: 'app-property-card',
@@ -9,6 +8,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 })
 export class PropertyCardComponent implements OnInit {
   @Input() property: PropertyRecord;
+  @ViewChild('card') cardElement: ElementRef;
   private w: number;
   private h: number;
   private readonly cardOffset = 8;
@@ -19,6 +19,7 @@ export class PropertyCardComponent implements OnInit {
     this.w = window.innerWidth;
     this.h = window.innerHeight;
   }
+
   /*
     Inspired by the Apple TV Card animation,
     Calculating the Amount of swing to the card while the mouse hovers the card,
@@ -27,15 +28,12 @@ export class PropertyCardComponent implements OnInit {
   mouseMove(event) {
     const offsetX = 0.5 - event.screenX / this.w, // cursor position X
       offsetY = 0.5 - event.screenY / this.h, // cursor position Y
-      dy = event.screenY - this.h / 2, // center of viewport: Todo Find center of card
-      dx = event.screenX - this.w / 2, // center of viewport: Todo Find center of card
+      dy = event.screenY - this.getCardMid().y, // diff between mid point y of the card and cursor y
+      dx = event.screenX - this.getCardMid().x, // diff between mid point x of the card and cursor x
       theta = Math.atan2(dy, dx), // angle between cursor and center of card in RAD
-      transformCard = `perspective(500px) rotateY(${offsetX * (this.cardOffset * 2)}deg)`; // card transform
-    let angle = theta * 180 / Math.PI - 90; // convert rad in degrees
-    // get angle between 0-360
-    if (angle < 0) {
-      angle = angle + 360;
-    }
+      transformCard = `perspective(500px) rotateY(${offsetX * (this.cardOffset * 2)}deg)`, // card transform
+      angle = theta * 180 / Math.PI - 90; // convert rad to degrees
+
     const glareShine = `linear-gradient(${angle}deg, rgba(255,255,255, ${event.screenY /
       this.h}) 0%,rgba(255,255,255,0) 80%)`;
 
@@ -43,9 +41,31 @@ export class PropertyCardComponent implements OnInit {
     this.glareStyle = glareShine;
   }
   /*
-    Reset the Transformation / Glare shines calculated on Mouse Move.
+    Reset the Transformation / Glare shines calculated on Mouse Leave.
   */
   mouseLeave(event) {
     this.transformStyle = this.glareStyle = '';
+  }
+  /*
+  Fn that returns back the mid point coordinates (x, y) of the card your hovering
+   */
+  getCardMid() {
+    const ele: any = this.cardElement,
+      card = ele.nativeElement,
+      offsetLeft = this.getCoords(card).left,
+      offsetTop = this.getCoords(card).top,
+      cardWidth = card.offsetWidth,
+      cardHeight = card.offsetHeight;
+    return {
+      x: cardWidth / 2 + offsetLeft,
+      y: cardHeight / 2 + offsetTop
+    };
+  }
+  /*
+  Fn get offset top, left compared to the viewport.
+  */
+  getCoords(elem) {
+    const pos = elem.getBoundingClientRect();
+    return { top: pos.top, left: pos.x };
   }
 }

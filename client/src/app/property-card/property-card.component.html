@@ -1,4 +1,4 @@
-<div class="card pointer" (mousemove)="mouseMove($event)" (mouseleave)="mouseLeave($event)" [ngStyle]="{'transform': transformStyle }">
+<div #card class="card pointer" (mousemove)="mouseMove($event)" (mouseleave)="mouseLeave($event)" [ngStyle]="{'transform': transformStyle }">
   <div class="glare" [ngStyle]="{'background': glareStyle }"></div>
   <div class="photo" [ngStyle]="{'background-image': 'url(' + property.photoUrl + ')'}">
     <app-property-status-button [property]="property"></app-property-status-button>
