@@ -28,8 +28,9 @@ export class PropertyCardComponent implements OnInit {
   mouseMove(event) {
     const offsetX = 0.5 - event.screenX / this.w, // cursor position X
       offsetY = 0.5 - event.screenY / this.h, // cursor position Y
-      dy = event.screenY - this.getCardMid().y, // diff between mid point y of the card and cursor y
-      dx = event.screenX - this.getCardMid().x, // diff between mid point x of the card and cursor x
+      cardPosition = this.getCardMid(),
+      dy = cardPosition.cardTop + 200 - cardPosition.y, // Few pixels below the mid point of the card
+      dx = event.screenX - cardPosition.x, // diff between mid point x of the card and cursor x
       theta = Math.atan2(dy, dx), // angle between cursor and center of card in RAD
       transformCard = `perspective(500px) rotateY(${offsetX * (this.cardOffset * 2)}deg)`, // card transform
       angle = theta * 180 / Math.PI - 90; // convert rad to degrees
@@ -57,7 +58,8 @@ export class PropertyCardComponent implements OnInit {
       cardHeight = card.offsetHeight;
     return {
       x: cardWidth / 2 + offsetLeft,
-      y: cardHeight / 2 + offsetTop
+      y: cardHeight / 2 + offsetTop,
+      cardTop: offsetTop
     };
   }
   /*
