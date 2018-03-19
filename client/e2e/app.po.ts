@@ -8,4 +8,10 @@ export class AppPage {
   getClassFromElement() {
     return element(by.css('app-root .main-content')).getAttribute('class');
   }
+
+  getPropertyCard() {
+    return browser.wait(() => {
+      return element(by.css('app-root .main-content .results app-property-card')).getSize();
+    }, 5000);
+  }
 }
