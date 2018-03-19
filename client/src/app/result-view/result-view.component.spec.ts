@@ -2,16 +2,17 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ResultViewComponent } from './result-view.component';
 
-describe('ResultViewComponent', () => {
+xdescribe('ResultViewComponent', () => {
   let component: ResultViewComponent;
   let fixture: ComponentFixture<ResultViewComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ResultViewComponent ]
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        declarations: [ResultViewComponent]
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ResultViewComponent);
