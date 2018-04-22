@@ -52,8 +52,9 @@ export class PropertyCardComponent implements OnInit {
   getCardMid() {
     const ele: any = this.cardElement,
       card = ele.nativeElement,
-      offsetLeft = this.getCoords(card).left,
-      offsetTop = this.getCoords(card).top,
+      cardCoords = this.getCoords(card),
+      offsetLeft = cardCoords.left,
+      offsetTop = cardCoords.top,
       cardWidth = card.offsetWidth,
       cardHeight = card.offsetHeight;
     return {
